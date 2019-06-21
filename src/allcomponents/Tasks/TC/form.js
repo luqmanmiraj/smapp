@@ -3,6 +3,20 @@ import Forminputs from './forminputs';
 import { Formik } from "formik";
 import Paper from "@material-ui/core/Paper";
 import withStyles from "@material-ui/core/styles/withStyles";
+import * as Yup from "yup";
+
+const validationSchema = Yup.object({
+  name: Yup.string("Enter a name")
+  .required("Name is required"),
+  email: Yup.string("Enter your email")
+  .email("Enter a valid email")
+  .required("Email is required"),
+  password: Yup.string("")
+  .min(8, "Password must contain at least 8 characters")
+  .required("Enter your password"),
+  confirmPassword: Yup.string("Enter your password")
+  .required("Confirm your password")
+  .oneOf([Yup.ref("password")], "Password does not match")});
 
 const styles = theme => ({
     paper: {
@@ -30,7 +44,7 @@ class formfun extends React.Component {
     render(){
 
         const classes = this.props;
-
+        const values = { name: "", email: "", confirmPassword: "", password: "" };
 
 
 return( 
@@ -41,6 +55,10 @@ return(
 <h2>Add form component with thier fields</h2>
 <Formik
              render={props => <Forminputs {...props} />}
+
+             initialValues={values}
+            validationSchema={validationSchema}
+            
            />
            </Paper>
        </div>
