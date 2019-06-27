@@ -8,6 +8,7 @@ import * as Yup from "yup";
 const validationSchema = Yup.object({
   name: Yup.string("Enter a name")
   .required("Name is required"),
+  p_task: Yup.string("Enter a PArent Task"),
   email: Yup.string("Enter your email")
   .email("Enter a valid email")
   .required("Email is required"),
@@ -44,7 +45,7 @@ class formfun extends React.Component {
     render(){
 
         const classes = this.props;
-        const values = { name: "", email: "", confirmPassword: "", password: "" };
+        const values = { name: "",p_task:"", email: "", confirmPassword: "", password: "" };
 
 
 return( 
@@ -57,7 +58,7 @@ return(
              render={props => <Forminputs {...props} />}
 
              initialValues={values}
-            validationSchema={validationSchema}
+          validationSchema={validationSchema}
             
            />
            </Paper>

@@ -11,7 +11,7 @@ import ChPrg from './checkbox';
 const inputsfunction = (props)=>{
 
   const {
-    values: { name, email, password, confirmPassword },
+    values: { name, p_task ,email, password, confirmPassword },
     errors,
     touched,
     handleChange,
@@ -51,13 +51,13 @@ return( <div>
 
 
 <TextField
-       id="p-task"
-       name="p-task"
-       helperText={touched.name ? errors.name : ""}
-       error={touched.name && Boolean(errors.name)}
+       id="p_task"
+       name="p_task"
+       helperText={touched.p_task ? errors.p_task : ""}
+       error={touched.p_task && Boolean(errors.p_task)}
        label="Parent Task"
-       value={name}
-       onChange={change.bind(null, "p-task")}
+       value={p_task}
+       onChange={change.bind(null, "p_task")}
        fullWidth
 
      />
