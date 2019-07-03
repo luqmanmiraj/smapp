@@ -17,19 +17,17 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SelectOne() {
+export default function SelectOne(props) {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
+// const [age, setAge] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
-  function handleChange(event) {
-    setAge(event.target.value);
-  }
+ 
 
   function handleClose() {
     setOpen(false);
   }
-
+console.log(props);
   function handleOpen() {
     setOpen(true);
   }
@@ -38,27 +36,25 @@ export default function SelectOne() {
     
      
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="demo-controlled-open-select">Priority</InputLabel>
+        <InputLabel htmlFor="demo-controlled-open-select">{props.title}</InputLabel>
         <Select
           open={open}
+          name={props.name}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={age}
-          onChange={handleChange}
+          value={props.selectedone}
+          onChange={props.onChange1}
           inputProps={{
-            name: 'age',
+            name: props.name,
             id: 'demo-controlled-open-select',
           }}
         >
           <MenuItem value="">
             <em>None</em>
+          
           </MenuItem>
-          <MenuItem value={1}>1</MenuItem>
-          <MenuItem value={2}>2</MenuItem>
-          <MenuItem value={3}>3</MenuItem>
-          <MenuItem value={4}>4</MenuItem>
-          <MenuItem value={5}>5</MenuItem>
-          <MenuItem value={6}>6</MenuItem>
+          {  props.options.map ( valuef =>  <MenuItem value={valuef}>{valuef}</MenuItem> ) }
+          
         </Select>
       </FormControl>
    

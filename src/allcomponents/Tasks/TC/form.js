@@ -1,5 +1,7 @@
 import React from 'react';
 import Forminputs from './forminputs';
+import InputsAll from './inputsall';
+
 import { Formik } from "formik";
 import Paper from "@material-ui/core/Paper";
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -8,16 +10,8 @@ import * as Yup from "yup";
 const validationSchema = Yup.object({
   name: Yup.string("Enter a name")
   .required("Name is required"),
-  p_task: Yup.string("Enter a PArent Task"),
-  email: Yup.string("Enter your email")
-  .email("Enter a valid email")
-  .required("Email is required"),
-  password: Yup.string("")
-  .min(8, "Password must contain at least 8 characters")
-  .required("Enter your password"),
-  confirmPassword: Yup.string("Enter your password")
-  .required("Confirm your password")
-  .oneOf([Yup.ref("password")], "Password does not match")});
+  p_task: Yup.string("Enter a PArent Task")
+  });
 
 const styles = theme => ({
     paper: {
@@ -45,11 +39,15 @@ class formfun extends React.Component {
     render(){
 
         const classes = this.props;
-        const values = { name: "",p_task:"", email: "", confirmPassword: "", password: "" };
+        const values = { name: "",p_task:"" };
 
 
 return( 
 <React.Fragment>
+
+
+<InputsAll/>
+
           <div className={classes.container}>
          <Paper elevation={1} className={classes.paper}>
 
@@ -61,7 +59,12 @@ return(
           validationSchema={validationSchema}
             
            />
+         
            </Paper>
+
+
+
+           
        </div>
      </React.Fragment>
 
