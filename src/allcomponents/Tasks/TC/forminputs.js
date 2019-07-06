@@ -3,9 +3,9 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
 
-import CKEditor from 'ckeditor4-react';
-import SelectCat from './SelectCat';
-import Selectone from './select-one';
+//import CKEditor from 'ckeditor4-react';
+//import SelectCat from './SelectCat';
+//import Selectone from './select-one';
 import PickDate from './pick-date';
 import ChPrg from './checkbox';
 import TwoWayBinding from './Rend_ckeditor';
@@ -70,7 +70,7 @@ return( <div>
 
      />
     
-      
+   {   /*
      
 <SelectCat title ={"Role" } name ="cat_task" id = "cat_task" name1 ={   {  cats: [
   'one',
@@ -79,9 +79,10 @@ return( <div>
   'four',
   'five'
 ] } }   />
+   */}
 
-<Selectone  title = {"Category"} options = {  ["Health" , "Life Style","Biz" , "Home" , "Study"]   }/>
-
+{ /* <Selectone  title = {"Category"} options = {  ["Health" , "Life Style","Biz" , "Home" , "Study"]   }/>
+*/}
 <PickDate/>
 <ChPrg/>
 
@@ -89,14 +90,14 @@ return( <div>
     
     
 
-
+{ /*
 <CKEditor      
                data="<p>This is a CKEditor 4 instance created by ️⚛️ React.</p>" 
 
                onChange={evt => console.log( evt.data )}
 
-/>
-<TwoWayBinding    />
+/> */}
+<TwoWayBinding    /> 
 
      <Button
        type="submit"

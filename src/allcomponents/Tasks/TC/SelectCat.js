@@ -51,11 +51,15 @@ export default function SelectCat(props) {
 
  const cats =props.name1.cats
   const classes = useStyles();
- 
-  const [personName, setPersonName] = React.useState([]);
+const personName = props.selectedValue;
+console.log( props.selectedValue);
+  
+  console.log(personName);
 
   function handleChange(event) {
-    setPersonName(event.target.value);
+    props.exefunc(event);
+    console.log(event.target.value);
+   console.log( props.Parent_Task);
   }
 
   

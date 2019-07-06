@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 import Ckedit from './ckeditorinputall';
-import Selectone from './select-one';
+//import Selectone from './select-one';
+import SelectCat from './SelectCat';
 
 
 
@@ -11,7 +12,10 @@ export default class inputsall extends Component{
     super(props);
     this.state = {title: '',
                   document:'',
-                  parentTask:'Health',
+                  Category:['Health','Biz'],
+                  Parent_Task:["three", "four", "two"],
+                  Role_task:["three", "four", "two"],
+
                   data:'Description of Task'  ,
                 };
 
@@ -32,7 +36,12 @@ export default class inputsall extends Component{
     this.setState({[name]: event.target.value});
   }
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.title +this.state.data+this.state.document+this.state.parentTask);
+    alert('A name was submitted: '
+     + this.state.title +this.state.data+this.state.document
+      
+     +' ' + this.state.Role_task+' ' + this.state.Parent_Task+
+     this.state.Category
+      );
     event.preventDefault();
   }
   
@@ -78,7 +87,36 @@ return(<form
       
 <Ckedit getdata = {this.getDataEdit} data={this.state.data} />
 
-<Selectone name={'parentTask'} selectedone={this.state.parentTask} onChange1={this.handleChange} title = {"Category"} options = {  ["Health" , "Life Style","Biz" , "Home" , "Study"]   } />
+
+<SelectCat title ={"Role" } exefunc={this.handleChange}  name ="Role_task" selectedValue={this.state.Role_task} id = "Role_task" name1 ={   {  cats: [
+  'one',
+  'two',
+  'three',
+  'four',
+  'five'
+] } }   />
+
+
+<SelectCat title ={"Parent Task" } exefunc={this.handleChange} name ="Parent_Task" id = "Parent_Task" selectedValue={this.state.Parent_Task} name1 ={   {  cats: [
+  'one',
+  'two',
+  'three',
+  'four',
+  'five'
+] } }   />
+
+<SelectCat title ={"Category" } exefunc={this.handleChange} name ="Category" id = "Category" 
+selectedValue={this.state.Category}
+ name1 ={   {  cats: [
+  'LifeStyle',
+  'Health',
+  'Biz',
+  'Study',
+  'Homework'
+] } }   />
+
+
+
 
 <Button
        type="submit"
