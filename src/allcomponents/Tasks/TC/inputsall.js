@@ -2,19 +2,26 @@ import React, { Component } from 'react';
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 import Ckedit from './ckeditorinputall';
-//import Selectone from './select-one';
+import Selectone from './select-one';
 import SelectCat from './SelectCat';
+import PickDate from './pick-date';
+import PickTime from './pick-time';
 
 
 
 export default class inputsall extends Component{
   constructor(props) {
     super(props);
-    this.state = {title: '',
+    const datobn = new Date();
+        this.state = {title: '',
                   document:'',
                   Category:['Health','Biz'],
                   Parent_Task:["three", "four", "two"],
                   Role_task:["three", "four", "two"],
+                  Start_time: datobn,
+                  End_time:datobn,
+                  Start_date:datobn,
+                  End_date:datobn,
 
                   data:'Description of Task'  ,
                 };
@@ -22,6 +29,9 @@ export default class inputsall extends Component{
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getDataEdit = this.getDataEdit.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+
+
   }
 
  getDataEdit(evt){
@@ -40,9 +50,18 @@ export default class inputsall extends Component{
      + this.state.title +this.state.data+this.state.document
       
      +' ' + this.state.Role_task+' ' + this.state.Parent_Task+
-     this.state.Category
+     this.state.Category+this.state.Start_time
       );
     event.preventDefault();
+  }
+
+
+
+  handleDateChange(dateobj ){
+this.setState({[dateobj.name] : dateobj.date})
+console.log(this.state.Start_date);
+
+
   }
   
 render(){
@@ -114,8 +133,15 @@ selectedValue={this.state.Category}
   'Study',
   'Homework'
 ] } }   />
+  
+<Selectone  title = {"Priority"} options = {  ["Cannot afford to miss " ,"Urgent & Important" , "Important not urgent", "only Urgent" , "Better if you do" ]   }/>
 
 
+
+<PickTime  exefunc={this.handleDateChange} title = {'Start Time '} name={'Start_time'} SelectedTime={this.state.Start_time} />
+<PickTime exefunc={this.handleDateChange} title = {'End Time '} name={'End_time'} SelectedTime={this.state.End_time} />
+<PickDate  exefunc={this.handleDateChange} title = {'Start Date '} name={'Start_date'} SelectedDate={this.state.Start_date} />
+<PickDate exefunc={this.handleDateChange} title = {'End Date '} name={'End_date'} SelectedDate={this.state.End_date} />
 
 
 <Button

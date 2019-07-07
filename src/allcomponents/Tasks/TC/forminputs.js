@@ -6,8 +6,8 @@ import TextField from "@material-ui/core/TextField";
 //import CKEditor from 'ckeditor4-react';
 //import SelectCat from './SelectCat';
 //import Selectone from './select-one';
-import PickDate from './pick-date';
-import ChPrg from './checkbox';
+/*import PickDate from './pick-date';
+*/import ChPrg from './checkbox';
 import TwoWayBinding from './Rend_ckeditor';
 
 
@@ -82,8 +82,8 @@ return( <div>
    */}
 
 { /* <Selectone  title = {"Category"} options = {  ["Health" , "Life Style","Biz" , "Home" , "Study"]   }/>
-*/}
-<PickDate/>
+
+<PickDate/>*/}
 <ChPrg/>
 
      
