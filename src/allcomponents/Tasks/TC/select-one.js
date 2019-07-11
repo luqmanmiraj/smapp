@@ -49,8 +49,8 @@ console.log(props);
             id: 'demo-controlled-open-select',
           }}
         >
-          <MenuItem value="">
-            <em>None</em>
+          <MenuItem value="None">
+            <em>Select</em>
           
           </MenuItem>
           {  props.options.map ( valuef =>  <MenuItem value={valuef}>{valuef}</MenuItem> ) }

@@ -6,6 +6,7 @@ import Selectone from './select-one';
 import SelectCat from './SelectCat';
 import PickDate from './pick-date';
 import PickTime from './pick-time';
+import AddForm from './addForm';
 
 
 
@@ -18,10 +19,12 @@ export default class inputsall extends Component{
                   Category:['Health','Biz'],
                   Parent_Task:["three", "four", "two"],
                   Role_task:["three", "four", "two"],
+                  Priority:"Cannot afford to miss ",
                   Start_time: datobn,
                   End_time:datobn,
                   Start_date:datobn,
                   End_date:datobn,
+                  Period:"30 mins" ,
 
                   data:'Description of Task'  ,
                 };
@@ -50,7 +53,7 @@ export default class inputsall extends Component{
      + this.state.title +this.state.data+this.state.document
       
      +' ' + this.state.Role_task+' ' + this.state.Parent_Task+
-     this.state.Category+this.state.Start_time
+     this.state.Category+this.state.Start_time+"  "+this.state.Priority
       );
     event.preventDefault();
   }
@@ -65,6 +68,12 @@ console.log(this.state.Start_date);
   }
   
 render(){
+
+
+
+
+
+
 
 return(<form
   onSubmit={this.handleSubmit}
@@ -116,6 +125,8 @@ return(<form
 ] } }   />
 
 
+
+
 <SelectCat title ={"Parent Task" } exefunc={this.handleChange} name ="Parent_Task" id = "Parent_Task" selectedValue={this.state.Parent_Task} name1 ={   {  cats: [
   'one',
   'two',
@@ -134,7 +145,7 @@ selectedValue={this.state.Category}
   'Homework'
 ] } }   />
   
-<Selectone  title = {"Priority"} options = {  ["Cannot afford to miss " ,"Urgent & Important" , "Important not urgent", "only Urgent" , "Better if you do" ]   }/>
+<Selectone onChange1 ={this.handleChange} selectedone={this.state.Priority} name= "Priority" title = {"Priority"} options = {  ["Cannot afford to miss " ,"Urgent & Important" , "Important not urgent", "only Urgent" , "Better if you do" ]   }/>
 
 
 
@@ -142,6 +153,10 @@ selectedValue={this.state.Category}
 <PickTime exefunc={this.handleDateChange} title = {'End Time '} name={'End_time'} SelectedTime={this.state.End_time} />
 <PickDate  exefunc={this.handleDateChange} title = {'Start Date '} name={'Start_date'} SelectedDate={this.state.Start_date} />
 <PickDate exefunc={this.handleDateChange} title = {'End Date '} name={'End_date'} SelectedDate={this.state.End_date} />
+
+<Selectone onChange1 ={this.handleChange} selectedone={this.state.Period} name= "Period" title = {"Time Period"} options = {  ["30 mins" ,"1 hour" , "1 hour 30 mins", "2 hour" , "3 hour", "4 hours" , "5 hours" , "6 hours" ,"7 hours" , "8 hours"   ]   }/>
+
+
 
 
 <Button
