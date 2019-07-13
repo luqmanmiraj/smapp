@@ -16,9 +16,9 @@ export default class inputsall extends Component{
     const datobn = new Date();
         this.state = {title: '',
                   document:'',
-                  Category:['Health','Biz'],
-                  Parent_Task:["three", "four", "two"],
-                  Role_task:["three", "four", "two"],
+                  Category:[],
+                  Parent_Task:[],
+                  Role_task:[],
                   Priority:"Cannot afford to miss ",
                   Start_time: datobn,
                   End_time:datobn,
@@ -123,8 +123,11 @@ return(<form
   'four',
   'five'
 ] } }   />
-
-
+{
+(this.state.Role_task.length < 1)?
+  <AddForm/>
+: null
+}
 
 
 <SelectCat title ={"Parent Task" } exefunc={this.handleChange} name ="Parent_Task" id = "Parent_Task" selectedValue={this.state.Parent_Task} name1 ={   {  cats: [
@@ -134,6 +137,13 @@ return(<form
   'four',
   'five'
 ] } }   />
+
+{
+(this.state.Parent_Task.length < 1)?
+  <AddForm/>
+: null
+}
+
 
 <SelectCat title ={"Category" } exefunc={this.handleChange} name ="Category" id = "Category" 
 selectedValue={this.state.Category}
@@ -145,6 +155,13 @@ selectedValue={this.state.Category}
   'Homework'
 ] } }   />
   
+  {
+(this.state.Category.length < 1)?
+  <AddForm/>
+: null
+}
+
+
 <Selectone onChange1 ={this.handleChange} selectedone={this.state.Priority} name= "Priority" title = {"Priority"} options = {  ["Cannot afford to miss " ,"Urgent & Important" , "Important not urgent", "only Urgent" , "Better if you do" ]   }/>
 
 
