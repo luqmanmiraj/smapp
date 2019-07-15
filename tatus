@@ -1,0 +1,71 @@
+[33mcommit bafd84520ec5da0747cbf34421c62a4ef230e214[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Sat Jul 13 22:07:56 2019 +0500
+
+    Great
+
+[33mcommit a924fb1518b6ab892fbb75bb88f327a77f70e52b[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Thu Jul 11 21:45:43 2019 +0500
+
+    form almost complete  just before adding modal form
+
+[33mcommit 73e333eeadafbb67e540310836fa24d46b5352e3[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Sun Jul 7 21:43:45 2019 +0500
+
+    great
+
+[33mcommit 115404fb270b3274fb29750ec5d105317164d92d[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Sun Jul 7 00:19:18 2019 +0500
+
+    form work
+
+[33mcommit 9f28a0f47cca11499527d7587151f730903dca9f[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Wed Jul 3 22:30:36 2019 +0500
+
+    two way bindinf of ckeditor and converting functional component to stateful component
+
+[33mcommit 8a6d82eb7c4fb6136438da6e5399b4def8435a73[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Thu Jun 27 15:03:41 2019 +0500
+
+    27 fixed formik issue
+
+[33mcommit bc5715a6f952ff8e5fc119671ea9b394948080d6[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Wed Jun 26 15:42:21 2019 +0500
+
+    form ckeditor 4 add
+
+[33mcommit bcd3dfa2d7010ae1e9dcbd369a915a3a4d6d7b61[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Fri Jun 21 16:46:42 2019 +0500
+
+    Form elements are complete , yet all form need to be refactored
+
+[33mcommit d659469dad5643e999572e717a2c4bb3ea908659[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Tue Jun 18 19:56:42 2019 +0500
+
+    Material UI , Fomik ,and Yup integration on task form
+
+[33mcommit 93851f510cc0af0f68307fc9b77f899b90cad357[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Tue Jun 11 23:10:49 2019 +0500
+
+    added taks folfder and files
+
+[33mcommit f75b17d3d7cc45f2c0f460ea0309f30a88576d0a[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Tue Jun 11 23:09:59 2019 +0500
+
+    added tasks Files
+
+[33mcommit 1b4747ae1da47ce55607f883183be11af8cde514[m
+Author: luqman miraj <luqmanmiraj42@gmail.com>
+Date:   Mon Jun 10 22:56:09 2019 +0500
+
+    Initial commit from Create React App
