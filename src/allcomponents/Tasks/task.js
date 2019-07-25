@@ -1,11 +1,11 @@
 import React from 'react';
-import Formf from './TC/form';
+
 import AllTasks from './Tasks-list';
 import Timetable from '../Timetable/timetable';
 import Deadlines from '../Deadlines/deadline';
 import TimeLog from '../TimeLogs/timelogs';
 import Performance from '../Performances/performance';
-
+import ModelPopUp from './dialogfromtask'
 
 class task extends React.Component {
     state = {
@@ -17,7 +17,7 @@ class task extends React.Component {
     render() {
       return (<div> 
 
-      <div> <Formf/> 
+      <div> <ModelPopUp settrue={false} /> 
       
       </div>
       <div>   <AllTasks/>    </div>

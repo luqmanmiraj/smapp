@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import { render } from 'react-dom';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
+import { Calendar, Views , momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -11,13 +11,17 @@ export default class Timetable extends Component {
   constructor() {
     super();
     const now = new Date();
+
+    this.ondoubleclickfunction = this.ondoubleclickfunction.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
+
     const events = [
       {
           id: 0,
           title: 'All Day Event very long title',
           allDay: true,
-          start: new Date(2015, 3, 0),
-          end: new Date(2015, 3, 1),
+          start: new Date(2019, 7, 25),
+          end: new Date(2019, 7, 26),
       },
       {
           id: 1,
@@ -63,8 +67,8 @@ export default class Timetable extends Component {
       {
           id: 7,
           title: 'Lunch',
-          start: new Date(2015, 3, 12, 12, 0, 0, 0),
-          end: new Date(2015, 3, 12, 13, 0, 0, 0),
+          start: new Date(2019, 6 , 25, 1, 0, 0, 0),
+          end: new Date(2019, 6, 25, 2, 30, 0, 0),
           desc: 'Power lunch',
       },
       {
@@ -125,9 +129,22 @@ export default class Timetable extends Component {
     ]
     this.state = {
       name: 'React',
-      events
+      events : events
     };
   }
+
+  ondoubleclickfunction(event){
+
+  
+console.log("calendar double clicked event")
+  }
+
+
+  handleSelect = () => {
+    console.log("yes it is changed");
+  }
+
+
 
   render() {
     return (
@@ -137,11 +154,20 @@ export default class Timetable extends Component {
         </p>
         <div style={{ height: '500pt'}}>
           <Calendar
+          selectable
             events={this.state.events}
             startAccessor="start"
             endAccessor="end"
             defaultDate={moment().toDate()}
             localizer={localizer}
+            onSelectEvent={(event) => {
+              
+              alert(event.title)
+              this.ondoubleclickfunction(event);
+             }}
+            onSelectSlot={this.handleSelect}
+            onDoubleClickEvent = {this.ondoubleclickfunction}
+            defaultView={Views.WEEK}
           />
         </div>
       </div>
