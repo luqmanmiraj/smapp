@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ModelPopUp from '../Tasks/dialogfromtask'
 //import { render } from 'react-dom';
 import { Calendar, Views , momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
@@ -129,30 +130,40 @@ export default class Timetable extends Component {
     ]
     this.state = {
       name: 'React',
-      events : events
+      events : events,
+      showpopform:false
     };
   }
 
   ondoubleclickfunction(event){
 
   
-console.log("calendar double clicked event")
+console.log("calendar double clicked event");
+this.setState({showpopform:true});
   }
 
 
   handleSelect = () => {
     console.log("yes it is changed");
+  this.setState({showpopform:true});
+
   }
 
 
 
   render() {
+
+    if(this.state.showpopform){
     return (
+
+
+
       <div>
         <p>
           A test for the React Big Calendar.
         </p>
         <div style={{ height: '500pt'}}>
+        <ModelPopUp settrue={true} />
           <Calendar
           selectable
             events={this.state.events}
@@ -164,6 +175,7 @@ console.log("calendar double clicked event")
               
               alert(event.title)
               this.ondoubleclickfunction(event);
+              this.setState({showpopform:true});
              }}
             onSelectSlot={this.handleSelect}
             onDoubleClickEvent = {this.ondoubleclickfunction}
@@ -172,6 +184,41 @@ console.log("calendar double clicked event")
         </div>
       </div>
     );
+            } else {
+
+              return (
+
+
+
+                <div>
+                  <p>
+                    A test for the React Big Calendar.
+                  </p>
+                  <div style={{ height: '500pt'}}>
+                 
+                    <Calendar
+                    selectable
+                      events={this.state.events}
+                      startAccessor="start"
+                      endAccessor="end"
+                      defaultDate={moment().toDate()}
+                      localizer={localizer}
+                      onSelectEvent={(event) => {
+                        
+                        alert(event.title)
+                        this.ondoubleclickfunction(event);
+                       }}
+                      onSelectSlot={this.handleSelect}
+                      onDoubleClickEvent = {this.ondoubleclickfunction}
+                      defaultView={Views.WEEK}
+                    />
+                  </div>
+                </div>
+              );
+
+
+
+            }
   }
 }
 
